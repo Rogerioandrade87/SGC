@@ -8,7 +8,7 @@ namespace SGC.ApplicationCore.Entity
     {
         public Cliente()
         {
-
+             
         }
 
         public int ClienteId { get; set; }

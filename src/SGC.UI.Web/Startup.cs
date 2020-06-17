@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SGC.UI.Web.Data;
 using SGC.UI.Web.Models;
 using SGC.UI.Web.Services;
+using SGC.Infrastructure.Data;
 
 namespace SGC.UI.Web
 {
@@ -32,6 +33,10 @@ namespace SGC.UI.Web
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            //Conexão com o Banco
+            services.AddDbContext<ClienteContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
