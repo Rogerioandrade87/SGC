@@ -14,5 +14,6 @@ namespace SGC.ApplicationCore.Entity
         public int ClienteId { get; set; }
         public string Nome { get; set; }
         public string CPF { get; set; }
+        public ICollection<Contato> Contatos { get; set; }
     }
 }
